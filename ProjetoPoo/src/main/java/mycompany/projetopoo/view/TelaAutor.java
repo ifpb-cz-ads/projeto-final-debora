@@ -4,6 +4,9 @@
  */
 package mycompany.projetopoo.view;
 
+import javax.swing.JOptionPane;
+import mycompany.projetopoo.controller.EscritorController;
+
 /**
  *
  * @author debor
@@ -188,7 +191,33 @@ public class TelaAutor extends javax.swing.JFrame {
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLimparActionPerformed
-
+    public void limparTelaCadastroEscritor(java.awt.event.MouseEvent evt) {
+        jTextFieldCampoNome.setText("");
+        jComboBoxCampoNacionalidade.setSelectedItem(0);
+    }
+    
+    public void fecharTelaCadastroAutor(java.awt.event.WindowEvent evt){
+       // telaPrincipal.setVisible(true);
+    }
+    
+    private void salvarEscritor(java.awt.event.MouseEvent evt){
+        String nome = jTextFieldCampoNome.getText();
+        String nacionalidade = jComboBoxCampoNacionalidade.getSelectedItem().toString();
+        boolean sucesso;
+        
+        try{
+            EscritorController escritorController = new EscritorController();
+            sucesso = escritorController.cadastrarEscritor(nome, nacionalidade);
+            if(sucesso == true){
+                JOptionPane.showMessageDialog(null, "O Escritor foi cadastrado com sucesso!");
+                this.limparTelaCadastroEscritor(evt);
+            }else{
+                JOptionPane.showMessageDialog(null, "Os campos não foram preenchidos corretamente.");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error:" + e );
+        }
+    }
     /**
      * @param args the command line arguments
      */

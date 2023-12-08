@@ -238,25 +238,39 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        int numPaginas = Integer.parseInt(jComboBoxCampoPaginas.getValue().toString()) ;
+  
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    
+    public void salvarTelaCadastroLivro(java.awt.event.MouseEvent evt){
+         int numPaginas = Integer.parseInt(jComboBoxCampoPaginas.getItemAt(0).toString());
         String genero = jComboBoxCampoGenero.getSelectedItem().toString();
-        boolean sucesso;
+        boolean sucesso; 
     
     try{
-    
-    LivroController livroController = new LivroController();
-    sucesso = livroController.cadastraLivro(jTextFieldCampoTitulo.getText(), jComboBoxCampoGenero, jTextPaneCampoResumo.getText(), jComboBoxCampoPaginas);
+       LivroController livroController = new LivroController();
+       sucesso = livroController.cadastraLivro(genero, genero, genero, numPaginas);
         if(sucesso ==true){
             JOptionPane.showMessageDialog(null, "O livro foi cadastrado!");
-        this.limparTelaCadastroFilme(evt);
-}else{
-            JOptionPane.showMessageDialog(null, "Os campos não foram preenchidos corretamente.");
+        this.limparTelaCadastroLivros(evt); 
+        }else{
+            JOptionPane.showMessageDialog(null, "Os campos nao foram preenchidos corretamente!");
         }
-
-catch (Exception ex){
-        JOptionPane.showMessageDialog(null, "ERROR:" + ex);
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    }catch(Exception e){
+        JOptionPane.showMessageDialog(null, "ERROR:" + e);
     }
+}
+    
+    public void fecharJanela(java.awt.event.WindowEvent evt){
+        this.dispose();
+       // telaPrincipal.setVisible(true);
+    }
+    
+    private void limparTelaCadastroLivros(java.awt.event.MouseEvent evt){
+        jTextFieldCampoTitulo.setText("");
+        jComboBoxCampoGenero.setSelectedIndex(0);
+        jTextPaneCampoResumo.setText("");
+        jComboBoxCampoPaginas.setSelectedIndex(0);
+        
     }
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         // TODO add your handling code here:                                        
