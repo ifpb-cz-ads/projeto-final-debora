@@ -86,7 +86,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldCampoNome" min="-2" pref="422" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCampoTitulo" min="-2" pref="422" max="-2" attributes="0"/>
                               <Component id="jComboBoxCampoGenero" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -124,7 +124,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldCampoNome" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCampoTitulo" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jLabelNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -163,7 +163,7 @@
             <Property name="text" type="java.lang.String" value="NOME:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCampoNome">
+        <Component class="javax.swing.JTextField" name="jTextFieldCampoTitulo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
@@ -178,6 +178,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCampoTituloActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelGenero">
           <Properties>
@@ -231,6 +234,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelResumo">
@@ -280,7 +284,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="21">
+              <StringArray count="20">
                 <StringItem index="0" value="Selecione o n&#xfa;mero de p&#xe1;ginas..."/>
                 <StringItem index="1" value="15"/>
                 <StringItem index="2" value="20"/>
@@ -301,7 +305,6 @@
                 <StringItem index="17" value="800"/>
                 <StringItem index="18" value="900"/>
                 <StringItem index="19" value="1000"/>
-                <StringItem index="20" value="+1000"/>
               </StringArray>
             </Property>
           </Properties>
@@ -330,6 +333,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCancelar">
           <Properties>

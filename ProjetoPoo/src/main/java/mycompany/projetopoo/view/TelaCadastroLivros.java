@@ -4,6 +4,8 @@
  */
 package mycompany.projetopoo.view;
 
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 import mycompany.projetopoo.controller.LivroController;
 
 /**
@@ -31,7 +33,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         jLabelCadastroLivro = new javax.swing.JLabel();
         jPanelTelaCadastro = new javax.swing.JPanel();
         jLabelNome = new javax.swing.JLabel();
-        jTextFieldCampoNome = new javax.swing.JTextField();
+        jTextFieldCampoTitulo = new javax.swing.JTextField();
         jLabelGenero = new javax.swing.JLabel();
         jComboBoxCampoGenero = new javax.swing.JComboBox<>();
         jLabelResumo = new javax.swing.JLabel();
@@ -59,10 +61,15 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         jLabelNome.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelNome.setText("NOME:");
 
-        jTextFieldCampoNome.setBackground(new java.awt.Color(153, 153, 153));
-        jTextFieldCampoNome.setForeground(new java.awt.Color(0, 0, 0));
-        jTextFieldCampoNome.setText("  Titulo do Livro...");
-        jTextFieldCampoNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldCampoTitulo.setBackground(new java.awt.Color(153, 153, 153));
+        jTextFieldCampoTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldCampoTitulo.setText("  Titulo do Livro...");
+        jTextFieldCampoTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldCampoTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCampoTituloActionPerformed(evt);
+            }
+        });
 
         jLabelGenero.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelGenero.setText("GÊNERO:");
@@ -86,7 +93,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         jLabelPaginas.setText("PÁGINAS:");
 
         jComboBoxCampoPaginas.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBoxCampoPaginas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o número de páginas...", "15", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "+1000" }));
+        jComboBoxCampoPaginas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o número de páginas...", "15", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000" }));
         jComboBoxCampoPaginas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCampoPaginasActionPerformed(evt);
@@ -103,6 +110,11 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
 
         jButtonLimpar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCancelar.setText("Cancelar");
@@ -134,7 +146,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
                             .addComponent(jLabelNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelTelaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCampoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxCampoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelTelaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanelTelaCadastroLayout.createSequentialGroup()
@@ -162,7 +174,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
             .addGroup(jPanelTelaCadastroLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanelTelaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCampoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNome))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTelaCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,12 +234,38 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+        int numPaginas = Integer.parseInt(jComboBoxCampoPaginas.getValue().toString()) ;
+        String genero = jComboBoxCampoGenero.getSelectedItem().toString();
+        boolean sucesso;
+    
+    try{
+    
+    LivroController livroController = new LivroController();
+    sucesso = livroController.cadastraLivro(jTextFieldCampoTitulo.getText(), jComboBoxCampoGenero, jTextPaneCampoResumo.getText(), jComboBoxCampoPaginas);
+        if(sucesso ==true){
+            JOptionPane.showMessageDialog(null, "O livro foi cadastrado!");
+        this.limparTelaCadastroFilme(evt);
+}else{
+            JOptionPane.showMessageDialog(null, "Os campos não foram preenchidos corretamente.");
+        }
 
+catch (Exception ex){
+        JOptionPane.showMessageDialog(null, "ERROR:" + ex);
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    }
+    }
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        // TODO add your handling code here:                                        
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jTextFieldCampoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCampoTituloActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -268,7 +306,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JComboBox<String> jComboBoxCampoGenero;
+    public javax.swing.JComboBox<String> jComboBoxCampoGenero;
     private javax.swing.JComboBox<String> jComboBoxCampoPaginas;
     private javax.swing.JLabel jLabelCadastroLivro;
     private javax.swing.JLabel jLabelGenero;
@@ -277,10 +315,14 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelResumo;
     private javax.swing.JPanel jPanelTelaCadastro;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextFieldCampoNome;
+    private javax.swing.JTextField jTextFieldCampoTitulo;
     private javax.swing.JTextPane jTextPaneCampoResumo;
     // End of variables declaration//GEN-END:variables
-    private void salvarLivro(java.awt.event.ActionEvent evt){
+
+    private void limparTelaCadastroFilme(ActionEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    /*private void salvarLivro(java.awt.event.ActionEvent evt){
         int numPaginas = Integer.parseInt(jComboBoxCampoPaginas.getSelectedItem().toString());
         String genero = jComboBoxCampoGenero.getSelectedItem().toString();
         boolean sucesso;
@@ -291,6 +333,6 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     livroController.cadastraLivro();
 }
 
-catch{}
+catch{}*/
 }
 
