@@ -333,20 +333,5 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPaneCampoResumo;
     // End of variables declaration//GEN-END:variables
 
-    private void limparTelaCadastroFilme(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    /*private void salvarLivro(java.awt.event.ActionEvent evt){
-        int numPaginas = Integer.parseInt(jComboBoxCampoPaginas.getSelectedItem().toString());
-        String genero = jComboBoxCampoGenero.getSelectedItem().toString();
-        boolean sucesso;
-    }
-    try{
-    
-    LivroController livroController = new LivroController();
-    livroController.cadastraLivro();
-}
-
-catch{}*/
 }
 

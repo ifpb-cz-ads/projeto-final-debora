@@ -6,7 +6,9 @@ package mycompany.projetopoo.view;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import mycompany.projetopoo.controller.ClienteController;
 /**
  *
  * @author debor
@@ -265,7 +267,35 @@ MaskFormatter mascaraData = null;
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTextFieldCampoNascimentoActionPerformed
-
+    private void fecharJanela(java.awt.event.WindowEvent evt){
+        // telaPrincipal.setVisible(true);    
+    }
+    
+    
+    private void salvarCliente(java.awt.event.MouseEvent evt){
+    boolean sucesso;
+    
+    try{
+        ClienteController clienteController = new ClienteController();
+        sucesso = clienteController.cadastrarCliente(jTextFieldCampoNome.getText(), jTextFieldCampoCpf.getText(), jTextFieldCampoEmail.getText(),
+                jTextFieldCampoEndereço.getText(), jTextFieldCampoNascimento.getText());
+        if(sucesso == true){
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+            this.limparTelaCadastroCliente(evt);
+        }else{
+            JOptionPane.showMessageDialog(null, "Verifique os campos que nao foram preenchidos corretamente:");
+        }
+    }catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Error:" + e);
+    }
+}
+    private void limparTelaCadastroCliente(java.awt.event.MouseEvent evt){
+        jTextFieldCampoNome.setText("");
+        jTextFieldCampoCpf.setText("");
+        jTextFieldCampoEmail.setText("");
+        jTextFieldCampoEndereço.setText("");
+        jTextFieldCampoNascimento.setText("");
+    }
     /**
      * @param args the command line arguments
      */

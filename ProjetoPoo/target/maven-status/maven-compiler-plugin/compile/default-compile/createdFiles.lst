@@ -19,6 +19,7 @@ mycompany\projetopoo\controller\LivroController.class
 mycompany\projetopoo\view\TelaAutor$5.class
 mycompany\projetopoo\view\TelaCliente$3.class
 mycompany\projetopoo\view\TelaAutor.class
+mycompany\projetopoo\controller\ClienteController.class
 mycompany\projetopoo\view\TelaCadastroLivros$1.class
 mycompany\projetopoo\view\TelaCliente.class
 mycompany\projetopoo\view\Main.class
