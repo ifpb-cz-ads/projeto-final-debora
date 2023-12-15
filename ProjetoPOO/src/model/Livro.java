@@ -20,7 +20,9 @@ public class Livro {
     private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Escritor> autores  = new ArrayList<Escritor>();
 
-    
+    public Livro(){
+        
+    }
     public Livro(String titulo, String genero, String sinopse, Integer numPaginas) {
        // throw new UnsupportedOperationException("Not supported yet."); esta parte do construtor em geral foi criada a partir de um erro na controller livro
     }
@@ -85,5 +87,15 @@ public class Livro {
     
     public void cadastraLivro(Livro livro) throws ExceptionDAO{
         new LivroDAO().cadastraLivro(livro);
+    }
+    
+    public ArrayList<Livro> listarLivros(String nome) throws ExceptionDAO{
+        return new LivroDAO().listarLivros(nome);
+    }
+    public void alterarLivro(Livro livro) throws ExceptionDAO{
+        new LivroDAO().alterarLivro(livro);
+    }
+    public void apagarLivro(Livro livro) throws ExceptionDAO{
+        new LivroDAO().apagarLivro(livro);
     }
 }
