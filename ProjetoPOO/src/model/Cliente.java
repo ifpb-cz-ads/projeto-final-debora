@@ -91,6 +91,18 @@ public class Cliente {
     public void casdastrarCliente(Cliente cliente) throws ExceptionDAO{
         new ClienteDAO().CadastrarCliente(cliente);
     }
+     
+
+    public ArrayList<Cliente> listarLivros(String nome)throws ExceptionDAO{
+        return new ClienteDAO().listarClientes(nome);
+        
+    }
+    public void alterarCliente(Cliente cliente) throws ExceptionDAO{
+        new ClienteDAO().alterarCliente(cliente);
+    }
+     public void apagarCliente(Cliente cliente) throws ExceptionDAO{
+        new ClienteDAO().apagarCliente(cliente);
+    }
 }
 
 
