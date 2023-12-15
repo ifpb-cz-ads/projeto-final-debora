@@ -60,6 +60,16 @@ public class Escritor {
     public void cadastrarEscritor(Escritor escritor) throws ExceptionDAO{
         new AutorDAO().cadastrarEscritor(escritor);
     }
+    public ArrayList<Escritor> listarAutores(String nome) throws ExceptionDAO{
+     return new AutorDAO().listarAutores(nome);
+        
+    }
+    public void alterarEscritor(Escritor escritor) throws ExceptionDAO{
+        new AutorDAO().alterarEscritor(escritor);
+    }
+    public void apagarEscritor(Escritor escritor) throws ExceptionDAO{
+        new AutorDAO().apagarEscritor(escritor);
+    }
 }
     
 
