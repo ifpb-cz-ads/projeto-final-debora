@@ -5,6 +5,8 @@
  */
 package controller;
 
+import dao.ExceptionDAO;
+import java.util.ArrayList;
 import model.Escritor;
 
 /**
@@ -13,7 +15,7 @@ import model.Escritor;
  */
 public class EscritorController {
     boolean sucesso = true;
-    public boolean cadastrarEscritor(String nome, String nacionalidade){
+    public boolean cadastrarEscritor(String nome, String nacionalidade) throws ExceptionDAO{
         if(nome != null && nome.length()>0 && nacionalidade != null && nacionalidade.length()>0){
            Escritor escritor = new Escritor(nome, nacionalidade);
            escritor.cadastrarEscritor(escritor);
@@ -21,5 +23,29 @@ public class EscritorController {
         }else{
             return false;
         }
+    }
+    public ArrayList<Escritor> listarAutores(String nome) throws ExceptionDAO{
+     return new Escritor().listarAutores(nome);
+        
+    }
+    public boolean alterarEscritor(Integer codAutor, String nome, String nacionalidade) throws ExceptionDAO{
+        if(nome != null && nome.length()>0 && nacionalidade != null && nacionalidade.length()>0){
+           Escritor escritor = new Escritor(nome, nacionalidade);
+           escritor.setCodAutores(codAutor);
+           escritor.alterarEscritor(escritor);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public boolean apagarEscritor(int codAutor) throws ExceptionDAO{
+        if(codAutor == 0){
+            return false;
+        }else{
+            Escritor escritor = new Escritor();
+            escritor.setCodAutores(codAutor);
+            escritor.apagarEscritor(escritor);
+            return true;
+        } 
     }
 }
